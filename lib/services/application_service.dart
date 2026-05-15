@@ -5,9 +5,11 @@ Student Names:  Seatlholo KG, Matsane K, Molefe SB, Nyelimane T, Lesenyeho LJ, N
 import 'package:flutter/foundation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../models/application_model.dart';
+import 'notification_service.dart';
 
 class ApplicationService {
   final _client = Supabase.instance.client;
+  final _notificationService = NotificationService();
 
   // Uploads raw bytes to Supabase Storage and returns the public URL
   Future<String> _uploadBytes(
@@ -65,6 +67,14 @@ debugPrint('Current user UID: $uid');
         ...module.toMap(),
       });
     }
+
+    await _notificationService.notifyAdmins(
+      title: 'New application',
+      message: 'A student submitted an application for review.',
+      type: 'new_application',
+      applicationId: appId,
+      actorId: uid,
+    );
 
     return ApplicationModel.fromMap({
       ...appData,

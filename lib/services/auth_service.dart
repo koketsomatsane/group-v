@@ -4,9 +4,11 @@ Student Names:  Seatlholo KG, Matsane K, Molefe SB, Nyelimane T, Lesenyeho LJ, N
  */
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../models/user_model.dart';
+import 'notification_service.dart';
 
 class AuthService {
   final _client = Supabase.instance.client;
+  final _notificationService = NotificationService();
 
   // Signs up and inserts a row into the `profiles` table with default role 'student'
   Future<UserModel> register(String email, String password) async {
@@ -19,6 +21,13 @@ class AuthService {
       'email': email,
       'role': 'student',
     });
+
+    await _notificationService.notifyAdmins(
+      title: 'New student account',
+      message: '$email created a student account.',
+      type: 'new_account',
+      actorId: uid,
+    );
 
     return UserModel(id: uid, email: email, role: 'student');
   }

@@ -8,8 +8,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'app_theme.dart';
+import 'viewmodels/admin_viewmodel.dart';
 import 'viewmodels/application_viewmodel.dart';
 import 'viewmodels/auth_viewmodel.dart';
+import 'viewmodels/notification_viewmodel.dart';
+import 'views/admin/admin_shell_view.dart';
 import 'views/auth/auth_gate_view.dart';
 import 'views/auth/login_view.dart';
 import 'views/auth/register_view.dart';
@@ -30,7 +33,9 @@ Future<void> main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AuthViewModel()),
-        ChangeNotifierProvider(create: (_) => ApplicationViewModel())
+        ChangeNotifierProvider(create: (_) => ApplicationViewModel()),
+        ChangeNotifierProvider(create: (_) => AdminViewModel()),
+        ChangeNotifierProvider(create: (_) => NotificationViewModel()),
       ],
       child: const MyApp(),
     ),
@@ -58,7 +63,8 @@ class MyApp extends StatelessWidget {
         '/login': (_) => const LoginView(),
         '/register': (_) => const RegisterView(),
         '/complete-profile': (_) => const CompleteProfileView(),
-        '/student': (_) => const StudentShellView()
+        '/student': (_) => const StudentShellView(),
+        '/admin': (_) => const AdminShellView(),
       },
     );
   }
