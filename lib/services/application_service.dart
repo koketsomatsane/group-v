@@ -5,11 +5,9 @@ Student Names:  Seatlholo KG, Matsane K, Molefe SB, Nyelimane T, Lesenyeho LJ, N
 import 'package:flutter/foundation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../models/application_model.dart';
-// import 'notification_service.dart';
 
 class ApplicationService {
   final _client = Supabase.instance.client;
-  // final _notificationService = NotificationService();
 
   // Uploads raw bytes to Supabase Storage and returns the public URL
   Future<String> _uploadBytes(

@@ -5,10 +5,8 @@ Student Names:  Seatlholo KG, Matsane K, Molefe SB, Nyelimane T, Lesenyeho LJ, N
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../app_theme.dart';
-// import '../viewmodels/admin_viewmodel.dart';
 import '../viewmodels/application_viewmodel.dart';
 import '../viewmodels/auth_viewmodel.dart';
-// import '../viewmodels/notification_viewmodel.dart';
 
 class GlobalLoadingOverlay extends StatelessWidget {
   final Widget child;
@@ -17,10 +15,9 @@ class GlobalLoadingOverlay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isLoading = context.watch<AuthViewModel>().isLoading ||
-        context.watch<ApplicationViewModel>().isLoading ;//||
-        // context.watch<AdminViewModel>().isLoading ||
-        // context.watch<NotificationViewModel>().isLoading;
+    final isLoading =
+        context.watch<AuthViewModel>().isLoading ||
+        context.watch<ApplicationViewModel>().isLoading;
 
     return Stack(
       children: [
