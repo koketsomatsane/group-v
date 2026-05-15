@@ -3,7 +3,7 @@ Student Number:  222004623, 224051673, 223019042, 220044858, 223002326, 22103272
 Student Names:  Seatlholo KG, Matsane K, Molefe SB, Nyelimane T, Lesenyeho LJ, NF Zwane
  */
 
-// Structure: level -> semester -> list of {code, name}
+
 const Map<String, Map<String, List<Map<String, String>>>> kModules = {
   '1st Year': {
     'Semester 1': [
