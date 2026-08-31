@@ -1,16 +1,10 @@
-# student_assistant_application
+# Student Assistant App
 
-A new Flutter project.
+- This App allows students who are interested in being student assistants to apply for whichever postion of their choice. 
+- They can apply to assist 1st, 2nd or 3rd years in whichever module they see fit.
+- Applications are only limited to the Information Technology Department.
 
-## Getting Started
+## Language and Framework Used
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- This application uses Dart and Flutter for the User Interface.
+- It uses supabase for the backend, to store the applicants information, where the admnistrator can accept or reject applications. 
